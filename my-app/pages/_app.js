@@ -8,7 +8,13 @@ function App() {
 
   return (
     <div>
-    
+      <Input
+        setList={setList}
+        list={list}
+        inputValue={inputValue}
+        setInputValue={setInputValue}
+      />
+      <List list={list} setList={setList} />
     </div>
   );
 }
