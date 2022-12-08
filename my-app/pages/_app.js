@@ -7,14 +7,17 @@ function App() {
   const [inputValue, setInputValue] = useState("");
 
   return (
-    <div>
-      <Input
-        setList={setList}
-        list={list}
-        inputValue={inputValue}
-        setInputValue={setInputValue}
-      />
-      <List list={list} setList={setList} />
+    <div className='main-container'>
+      <h1>TODOS</h1>
+      <div className = 'input-container'>
+        <Input
+          setList={setList}
+          list={list}
+          inputValue={inputValue}
+          setInputValue={setInputValue}
+        />
+        <List list={list} setList={setList} />
+      </div>
     </div>
   );
 }

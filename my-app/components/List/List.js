@@ -2,7 +2,6 @@ import { useState } from "react";
 import { ListItem } from "../ListItem/ListItem";
 
 export const List = ({ list, setList }) => {
-  console.log(list);
   const [status, setStatus] = useState("all");
   const onChangeComplitedStatus = (index) => {
     setList(
@@ -38,8 +37,8 @@ export const List = ({ list, setList }) => {
   };
 
   return (
-    <div>
-      <ul>
+    <div className="list-container">
+      <ul className="ul-list">
         {onReturnStatusList().map((item, index) => {
           return (
             <ListItem
@@ -51,15 +50,37 @@ export const List = ({ list, setList }) => {
           );
         })}
       </ul>
-      <div>
-        <div>{onCalculateActiveItems()} items left </div>
-        <div>
-          <button onClick={() => setStatus("all")}>All</button>
-          <button onClick={() => setStatus("active")}>Active</button>
-          <button onClick={() => setStatus("complited")}>Complited</button>
+      {list.length ? (
+        <div className="bottom-buttons">
+          <div>{onCalculateActiveItems()} items left </div>
+          <div className="all-active-complited">
+            <button
+              onClick={() => setStatus("all")}
+              className={status === "all" && "selected"}
+            >
+              All
+            </button>
+            <button
+              onClick={() => setStatus("active")}
+              className={status === "active" && "selected"}
+            >
+              Active
+            </button>
+            <button
+              onClick={() => setStatus("complited")}
+              className={status === "complited" && "selected"}
+            >
+              Complited
+            </button>
+          </div>
+          <button
+            className="clear-complite-button"
+            onClick={() => onClearComplited()}
+          >
+            Clear complited
+          </button>
         </div>
-        <button onClick={() => onClearComplited()}>Clear complited</button>
-      </div>
+      ) : null}
     </div>
   );
 };

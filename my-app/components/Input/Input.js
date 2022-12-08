@@ -20,11 +20,10 @@ export const Input = ({ setList, list, inputValue, setInputValue }) => {
   };
 
   return (
-    <div>
-      <div onClick={() => onCompliteAll()}>КНОПКА ДЛЯ ОТМЕТКИ ВСЕХ СРАЗУ</div>
+    <div className='button-input'>
+      <div className="button-complite-all" onClick={() => onCompliteAll()}>▿</div>
       <form className="flex flex-col" onSubmit={(event) => onSubmitForm(event)}>
         <label htmlFor="name" className="mb-2 italic">
-          Name
         </label>
         <input
           id="name"
@@ -34,6 +33,8 @@ export const Input = ({ setList, list, inputValue, setInputValue }) => {
           required
           onChange={(e) => setInputValue(e.target.value)}
           value={inputValue}
+          className='main-input'
+          placeholder="What needs to be done?"
         />
       </form>
     </div>
