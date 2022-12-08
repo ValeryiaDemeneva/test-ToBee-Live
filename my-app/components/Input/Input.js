@@ -4,7 +4,6 @@ export const Input = ({ setList, list, inputValue, setInputValue }) => {
   const [status, setStatus] = useState(true);
   const onCompliteAll = () => {
     setStatus(!status);
-    console.log(status);
     setList(
       list.map((item) => {
         item.complited = status;
